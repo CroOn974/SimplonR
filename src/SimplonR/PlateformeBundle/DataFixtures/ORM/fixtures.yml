@@ -1,0 +1,17 @@
+SimplonR\PlateformeBundle\Entity\Applicant:
+    applicant_{1..10}:
+        surname: <lastName()>
+        firstname: <firstname()>
+        creationDate: <dateTimeThisCentury()>
+        birthDate: <dateTimeThisCentury()>
+        birthPlace: <city()>
+        birthCountry: <country()>
+        adress: <address()>
+        nationality: <countryCode()>
+        email: <email()>
+        phone: <phoneNumber()>
+        codecademyProfile: <url()>
+        englishLevel: <word()>
+        lastDiploma: <word()>
+        poleEmploiNumber: <numberBetween(10000,90000)>
+        status: <word()>
