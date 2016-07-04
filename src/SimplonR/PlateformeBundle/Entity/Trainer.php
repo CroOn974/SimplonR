@@ -56,6 +56,25 @@ class Trainer
      */
     private $skills;
 
+    /**
+     * @var
+     * @ORM\OneToOne(targetEntity="SimplonR\PlateformeBundle\Entity\User", inversedBy="trainer")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user_id;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="SimplonR\PlateformeBundle\Entity\Mark", mappedBy="trainer")
+     */
+    protected $notes;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="SimplonR\PlateformeBundle\Entity\Comment", mappedBy="trainer")
+     */
+    protected $comments;
+
 
     /**
      * Get id
@@ -186,5 +205,104 @@ class Trainer
     {
         return $this->skills;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->notes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set userId
+     *
+     * @param \SimplonR\PlateformeBundle\Entity\User $userId
+     *
+     * @return Trainer
+     */
+    public function setUserId(\SimplonR\PlateformeBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \SimplonR\PlateformeBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Add note
+     *
+     * @param \SimplonR\PlateformeBundle\Entity\Mark $note
+     *
+     * @return Trainer
+     */
+    public function addNote(\SimplonR\PlateformeBundle\Entity\Mark $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \SimplonR\PlateformeBundle\Entity\Mark $note
+     */
+    public function removeNote(\SimplonR\PlateformeBundle\Entity\Mark $note)
+    {
+        $this->notes->removeElement($note);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \SimplonR\PlateformeBundle\Entity\Comment $comment
+     *
+     * @return Trainer
+     */
+    public function addComment(\SimplonR\PlateformeBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \SimplonR\PlateformeBundle\Entity\Comment $comment
+     */
+    public function removeComment(\SimplonR\PlateformeBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+}

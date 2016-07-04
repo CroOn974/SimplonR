@@ -161,28 +161,5 @@ class Administrator
     {
         return $this->phone;
     }
-
-    /**
-     * Set userId
-     *
-     * @param \SimplonR\PlateformeBundle\Entity\User $userId
-     *
-     * @return Administrator
-     */
-    public function setUserId(\SimplonR\PlateformeBundle\Entity\User $userId = null)
-    {
-        $this->user_id = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \SimplonR\PlateformeBundle\Entity\User
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
 }
+

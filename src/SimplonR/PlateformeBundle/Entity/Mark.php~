@@ -170,52 +170,5 @@ class Mark
     {
         return $this->valuation;
     }
-
-    /**
-     * Set trainer
-     *
-     * @param \SimplonR\PlateformeBundle\Entity\Trainer $trainer
-     *
-     * @return Mark
-     */
-    public function setTrainer(\SimplonR\PlateformeBundle\Entity\Trainer $trainer = null)
-    {
-        $this->trainer = $trainer;
-
-        return $this;
-    }
-
-    /**
-     * Get trainer
-     *
-     * @return \SimplonR\PlateformeBundle\Entity\Trainer
-     */
-    public function getTrainer()
-    {
-        return $this->trainer;
-    }
-
-    /**
-     * Set applicant
-     *
-     * @param \SimplonR\PlateformeBundle\Entity\Applicant $applicant
-     *
-     * @return Mark
-     */
-    public function setApplicant(\SimplonR\PlateformeBundle\Entity\Applicant $applicant = null)
-    {
-        $this->applicant = $applicant;
-
-        return $this;
-    }
-
-    /**
-     * Get applicant
-     *
-     * @return \SimplonR\PlateformeBundle\Entity\Applicant
-     */
-    public function getApplicant()
-    {
-        return $this->applicant;
-    }
 }
+

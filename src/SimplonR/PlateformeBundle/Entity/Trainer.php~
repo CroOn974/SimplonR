@@ -5,12 +5,12 @@ namespace SimplonR\PlateformeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Administrator
+ * Trainer
  *
- * @ORM\Table(name="administrator")
- * @ORM\Entity(repositoryClass="SimplonR\PlateformeBundle\Repository\AdministratorRepository")
+ * @ORM\Table(name="trainer")
+ * @ORM\Entity(repositoryClass="SimplonR\PlateformeBundle\Repository\TrainerRepository")
  */
-class Administrator
+class Trainer
 {
     /**
      * @var int
@@ -38,7 +38,7 @@ class Administrator
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="text", length=255)
+     * @ORM\Column(name="adress", type="text")
      */
     private $adress;
 
@@ -50,11 +50,31 @@ class Administrator
     private $phone;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="skills", type="string", length=255)
+     */
+    private $skills;
+
+    /**
      * @var
-     * @ORM\OneToOne(targetEntity="SimplonR\PlateformeBundle\Entity\User", inversedBy="administrator")
+     * @ORM\OneToOne(targetEntity="SimplonR\PlateformeBundle\Entity\User", inversedBy="trainer")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user_id;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="SimplonR\PlateformeBundle\Entity\Mark", mappedBy="trainer")
+     */
+    protected $notes;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="SimplonR\PlateformeBundle\Entity\Comment", mappedBy="trainer")
+     */
+    protected $comments;
+
 
     /**
      * Get id
@@ -71,7 +91,7 @@ class Administrator
      *
      * @param string $surname
      *
-     * @return Administrator
+     * @return Trainer
      */
     public function setSurname($surname)
     {
@@ -95,7 +115,7 @@ class Administrator
      *
      * @param string $firstname
      *
-     * @return Administrator
+     * @return Trainer
      */
     public function setFirstname($firstname)
     {
@@ -119,7 +139,7 @@ class Administrator
      *
      * @param string $adress
      *
-     * @return Administrator
+     * @return Trainer
      */
     public function setAdress($adress)
     {
@@ -143,7 +163,7 @@ class Administrator
      *
      * @param string $phone
      *
-     * @return Administrator
+     * @return Trainer
      */
     public function setPhone($phone)
     {
@@ -163,26 +183,27 @@ class Administrator
     }
 
     /**
-     * Set userId
+     * Set skills
      *
-     * @param \SimplonR\PlateformeBundle\Entity\User $userId
+     * @param string $skills
      *
-     * @return Administrator
+     * @return Trainer
      */
-    public function setUserId(\SimplonR\PlateformeBundle\Entity\User $userId = null)
+    public function setSkills($skills)
     {
-        $this->user_id = $userId;
+        $this->skills = $skills;
 
         return $this;
     }
 
     /**
-     * Get userId
+     * Get skills
      *
-     * @return \SimplonR\PlateformeBundle\Entity\User
+     * @return string
      */
-    public function getUserId()
+    public function getSkills()
     {
-        return $this->user_id;
+        return $this->skills;
     }
 }
+
