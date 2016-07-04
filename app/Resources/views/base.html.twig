@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ asset('assets/normalize.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+        <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">SimplonR</a>
+        <div id="navbar">
+            <nav class="nav navbar-nav pull-xs-left">
+                <a class="nav-item nav-link" href="#">Dashboard</a>
+                <a class="nav-item nav-link" href="#">Settings</a>
+                <a class="nav-item nav-link" href="#">Profile</a>
+            </nav>
+            <form class="pull-xs-right">
+                <input type="text" class="form-control" placeholder="Rechercher...">
+            </form>
+        </div>
+    </nav>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+        crossorigin="anonymous"></script>
+</body>
 </html>
