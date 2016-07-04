@@ -1,0 +1,4 @@
+services:
+#    simplon_r_plateforme.example:
+#        class: SimplonR\PlateformeBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

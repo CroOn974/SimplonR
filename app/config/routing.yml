@@ -1,3 +1,8 @@
+simplon_r_plateforme:
+    resource: "@SimplonRPlateformeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
