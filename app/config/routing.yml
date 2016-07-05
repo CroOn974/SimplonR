@@ -4,6 +4,10 @@ simplon_r_plateforme:
     prefix:   /
 
 
+applicants:
+    type: rest
+    resource: "@SimplonRPlateformeBundle/Controller/ApplicantController.php"
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
