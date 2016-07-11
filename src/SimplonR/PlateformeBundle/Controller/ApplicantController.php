@@ -25,7 +25,7 @@ class ApplicantController extends FOSRestController
      * @return \Symfony\Component\HttpFoundation\Response
      * /applicants
      */
-    public function getApplicantsAction()
+    public function getApplicantAction()
     {
         $applicant = $this->getDoctrine()->getRepository(Applicant::class)
             ->findAll();
